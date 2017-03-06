@@ -99,7 +99,7 @@ public class Board {
 	
 	public Segment getSegment(int position){
 		//System.out.println(Arrays.toString(segs.toArray()));
-		if(position < 39){
+		if(position <= 39){
 			return segs.get(position);
 		}
 		else{

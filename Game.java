@@ -1,16 +1,17 @@
 import java.awt.EventQueue;
 
-public class Game implements GameInterface{
+public class Game{
 	
 	public Player currentPlayer;
 	
-	private Segment seg;
+	Segment seg;
 	static int jailCounter = 0;
 	boolean jailed = false;
 	int turnCounter = 0;
-
+	
 	Dice dice = new Dice();
 	Board board = new Board();
+	GUI gui = new GUI();
 	
 	public void turn(Player player){
 		currentPlayer = player;
@@ -19,8 +20,9 @@ public class Game implements GameInterface{
 			dice.RollDice();
 			int movement = dice.getMovement();	
 			player.setBoardPosition(movement + player.getBoardPosition());
-			seg = board.getSegment(player.getBoardPosition()); 
-			seg.land(player);
+			seg = board.getSegment(player.getBoardPosition());
+
+			
 			if(dice.DiceEqual()){
 				System.out.println("Rolled a double. Gets to go again");
 				turn(player);
@@ -40,6 +42,11 @@ public class Game implements GameInterface{
 		}
 	}
 	
+	public void takeTurn(){
+		
+	}
+	
+	
 	
 	public void moveDirectly(Player player, int position){
 		player.boardPosition = position;
@@ -47,33 +54,20 @@ public class Game implements GameInterface{
 		
 	}
 
-
-	@Override
-	public void takeTurn(Player player) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
+	
 	public void buy()
 	{
-		getCurrentPlayer();
+		seg.buy = true;
+	}
+
+	public boolean clicked(){
+		return gui.btnNewButton.getModel().isPressed();
 	}
 
 
-	@Override
+
 	public Player getCurrentPlayer() {
 		return currentPlayer;
 	}
-
-
-	@Override
-	public void sell() {
-		// TODO Auto-generated method stub
-		
-	}
 	
-	
-
 }

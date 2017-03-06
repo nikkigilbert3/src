@@ -1,6 +1,10 @@
 
 public abstract class Segment {
 	
+	volatile boolean turn = false;
+	volatile boolean buy = false;
+	
+	
 	protected int position;
 	protected String name;
 	

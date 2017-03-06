@@ -35,4 +35,9 @@ public class Buyable extends Segment {
 		}
 	}
 	
+	public void SetOwner(Player player){
+		owner = player;
+		isOwned = true;
+	}
+	
 }

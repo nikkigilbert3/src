@@ -22,14 +22,16 @@ import javax.swing.JTextArea;
 public class GUI implements ActionListener{
 
 	JFrame frame;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
-	private JButton btnNewButton_2;
+	JButton btnNewButton;
+	JButton btnNewButton_1;
+	JButton btnNewButton_2;
 	static int counter = 0;
 
 	static GUI gui = new GUI();
 	static Game game = new Game();
 
+	public boolean buy = false;
+	
 /**
 	 * Create the application.
 	 */
