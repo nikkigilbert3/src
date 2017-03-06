@@ -28,6 +28,11 @@ public class Game{
 			check =  false;
 			System.out.println("turn() has ended");
 		}
+		else{
+			System.out.println(player.getPlayerName() + " is in Jail.")
+			jailCounter--;
+			System.out.println("turn() has ended");
+		}
 	}
 	
 	public void buy(){
