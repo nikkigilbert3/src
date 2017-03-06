@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
@@ -20,12 +21,15 @@ import javax.swing.JTextArea;
 
 public class GUI implements ActionListener{
 
-	public boolean rollPressed = false;
 	JFrame frame;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
+	private JButton btnNewButton_2;
+	static int counter = 0;
 
+	static GUI gui = new GUI();
+	static Game game = new Game();
 
-	
-	
 /**
 	 * Create the application.
 	 */
@@ -47,17 +51,17 @@ public class GUI implements ActionListener{
 		
 		
 		// Buttons
-		JButton btnNewButton = new JButton("Roll");
+		btnNewButton = new JButton("Roll");
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setBounds(550, 560, 200, 100);
 		btnNewButton.setVisible(true);
 		
-		JButton btnNewButton_1 = new JButton("Buy");
+		btnNewButton_1 = new JButton("Buy");
 		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.setBounds(550, 450, 200, 100);
 		btnNewButton_1.setVisible(true);
 		
-		JButton btnNewButton_2 = new JButton("Sell");
+		btnNewButton_2 = new JButton("Sell");
 		btnNewButton_2.setBackground(Color.WHITE);
 		btnNewButton_2.setBounds(550, 340, 200, 100);
 		btnNewButton_2.setVisible(true);
@@ -265,22 +269,46 @@ public class GUI implements ActionListener{
 		
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		
-		
-		System.out.println("Hello");
-		
+		if (e.getSource().equals(gui.btnNewButton)){
+			game.turn(game.getCurrentPlayer());
+			counter++;
+	    }
+		else if (e.getSource().equals(gui.btnNewButton_1)){
+			game.buy();
+	    }
+
+			
 	}
 	
 	public static void main(String args[]){
 		
-		Game game = new Game();
-		GUI gui = new GUI();
+		Player player1 = new Player(1, "Brian");
+		Player player2 = new Player(2, "Kevin");
+		Player player3 = new Player(3, "Paul");
+		Player player4 = new Player(4, "Nikki");
 		
+		ArrayList<Player> players = new ArrayList<Player>();
+		
+		players.add(player1);
+		players.add(player2);
+		players.add(player3);
+		players.add(player4);
+		
+		
+		/*
+		int i = 0;
+		while(connectedClients < 4){
+			//when client connects assign to player
+		 	if(client connects){
+		 		OnClientConnect("name") client = players[i];
+		 		i++;
+		 	}
+		}
+		*/
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+		public void run() {
 				try {
 					gui.frame.setVisible(true);
 				} catch (Exception e) {
@@ -289,34 +317,34 @@ public class GUI implements ActionListener{
 			}
 		});
 		
-		
-
-		
-		
 		Board board = new Board();
 		
 		board.createBoard();
-		
-		Player player1 = new Player(1, "Brian");
-		Player player2 = new Player(2, "Kevin");
-		Player player3 = new Player(3, "Paul");
-		Player player4 = new Player(4, "Nikki");
 			
-		//int i = 0;
-		while(true){
-			System.out.println("\n\nIt is " + player1.getPlayerName() + "'s go. They have " + player1.balance.getBalance() + " in the bank");
-			game.turn(player1);
-			System.out.println("\n\nIt is " + player2.getPlayerName() + "'s go. They have " + player2.balance.getBalance() + " in the bank");
-			game.turn(player2);
-			System.out.println("\n\nIt is " + player3.getPlayerName() + "'s go. They have " + player3.balance.getBalance() + " in the bank");
-			game.turn(player3);
-			System.out.println("\n\nIt is " + player4.getPlayerName() + "'s go. They have " + player4.balance.getBalance() + " in the bank");
-			game.turn(player4);
+		
+			if(counter >= 0){
+			
+				game.currentPlayer = players.get(counter);
+				System.out.println("\n\nIt is " + game.currentPlayer.getPlayerName() + "'s go. They have " + game.currentPlayer.balance.getBalance() + " in the bank");
+				//game.turn(player1);
+				/*System.out.println("\n\nIt is " + player1.getPlayerName() + "'s go. They have " + player1.balance.getBalance() + " in the bank");
+				
+			
+				System.out.println("\n\nIt is " + player2.getPlayerName() + "'s go. They have " + player2.balance.getBalance() + " in the bank");
+				game.turn(player2);
+				
+				System.out.println("\n\nIt is " + player3.getPlayerName() + "'s go. They have " + player3.balance.getBalance() + " in the bank");
+				game.turn(player3);
+				
+				System.out.println("\n\nIt is " + player4.getPlayerName() + "'s go. They have " + player4.balance.getBalance() + " in the bank");
+				game.turn(player4);
+				*/
+			
+		}
 		}
 		
 		
-	}
-	
-	
-	
 }
+	
+	
+	

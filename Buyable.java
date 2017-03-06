@@ -10,7 +10,7 @@ public class Buyable extends Segment {
 		super(pos, nme);
 		value = cost;
 	}
-	
+
 	public boolean isOwned(){
 		return isOwned;
 	}

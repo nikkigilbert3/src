@@ -1,18 +1,19 @@
 import java.awt.EventQueue;
 
-public class Game{
+public class Game implements GameInterface{
 	
+	public Player currentPlayer;
 	
 	private Segment seg;
 	static int jailCounter = 0;
 	boolean jailed = false;
-	
-	//GUI gui = new GUI();
+	int turnCounter = 0;
 
 	Dice dice = new Dice();
 	Board board = new Board();
 	
 	public void turn(Player player){
+		currentPlayer = player;
 		if(!player.jailed){
 			System.out.println(player.getPlayerName() + " is starting their turn at " + board.getSegment(player.getBoardPosition()).name);
 			dice.RollDice();
@@ -43,6 +44,33 @@ public class Game{
 	public void moveDirectly(Player player, int position){
 		player.boardPosition = position;
 		seg.land(player);
+		
+	}
+
+
+	@Override
+	public void takeTurn(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void buy()
+	{
+		getCurrentPlayer();
+	}
+
+
+	@Override
+	public Player getCurrentPlayer() {
+		return currentPlayer;
+	}
+
+
+	@Override
+	public void sell() {
+		// TODO Auto-generated method stub
 		
 	}
 	
