@@ -57,6 +57,7 @@ public class Chance extends Segment{
 			if (card == 6){
 				System.out.println("Go to Jail!");
 				// send person to spot 10 lock them in
+				player.setBoardPosition(10);
 			}
 			if (card == 7){
 				System.out.println("Go back three spaces");
@@ -80,12 +81,12 @@ public class Chance extends Segment{
 			if (card == 11){
 				System.out.println("Your building loan matures - Collect 150");
 				//add 150 to bank balance
-				player.balance.addBalance(200);
+				player.balance.addBalance(150);
 			}
 			if (card == 12){
 				System.out.println("You have won a crossword competition - Collect 100");
 				//add 100 to bank balance
-				player.balance.addBalance(200);
+				player.balance.addBalance(100);
 			}
 			if (card == 13){
 				System.out.println("Bank pays you dividend of 50");
