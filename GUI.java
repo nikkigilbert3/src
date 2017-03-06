@@ -1,20 +1,12 @@
-import java.awt.Button;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-
-import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
 
 import java.awt.Color;
 import javax.swing.JTextArea;
@@ -320,18 +312,7 @@ public class GUI implements ActionListener{
 		players.add(player2);
 		players.add(player3);
 		players.add(player4);
-		
-		
-		/*
-		int i = 0;
-		while(connectedClients < 4){
-			//when client connects assign to player
-		 	if(client connects){
-		 		OnClientConnect("name") client = players[i];
-		 		i++;
-		 	}
-		}
-		*/
+	
 		EventQueue.invokeLater(new Runnable() {
 		public void run() {
 				try {
@@ -343,27 +324,12 @@ public class GUI implements ActionListener{
 		});
 		
 		Board board = new Board();
-		
 		board.createBoard();
-			
 		
 			if(counter >= 0){
 			
 				game.currentPlayer = players.get(counter);
 				System.out.println("\n\nIt is " + game.currentPlayer.getPlayerName() + "'s go. They have " + game.currentPlayer.balance.getBalance() + " in the bank");
-				//game.turn(player1);
-				/*System.out.println("\n\nIt is " + player1.getPlayerName() + "'s go. They have " + player1.balance.getBalance() + " in the bank");
-				
-			
-				System.out.println("\n\nIt is " + player2.getPlayerName() + "'s go. They have " + player2.balance.getBalance() + " in the bank");
-				game.turn(player2);
-				
-				System.out.println("\n\nIt is " + player3.getPlayerName() + "'s go. They have " + player3.balance.getBalance() + " in the bank");
-				game.turn(player3);
-				
-				System.out.println("\n\nIt is " + player4.getPlayerName() + "'s go. They have " + player4.balance.getBalance() + " in the bank");
-				game.turn(player4);
-				*/
 			
 			}
 		}

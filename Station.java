@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Station extends Buyable {
 
 	int numOwnedByPlayer;

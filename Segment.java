@@ -15,7 +15,15 @@ public abstract class Segment {
 		name = nme;
 	}
 	
-	public void land(Player player){	}
+	public void land(Player player){
+		
+	}
 
-	public void buy(Player currentPlayer) {	}
+	public void buy(Player currentPlayer){
+		
+	}
+	
+	public void sell(Player currentPlayer){
+		
+	}
 }

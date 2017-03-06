@@ -1,7 +1,6 @@
 
 public class Buyable extends Segment {
-	
-	//public boolean buyable = true;
+
 	
 	protected int value;
 	protected boolean isOwned = false;
@@ -22,10 +21,6 @@ public class Buyable extends Segment {
 		}else{
 			return false;
 		}
-	}
-	
-	public void sell(){
-		// link to player to be able to sell at any time
 	}
 	
 	public Player getOwner(){

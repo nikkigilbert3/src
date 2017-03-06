@@ -1,5 +1,3 @@
-import java.awt.EventQueue;
-
 public class Game{
 	
 	public Player currentPlayer;
@@ -27,6 +25,7 @@ public class Game{
 			pressCheck(player);
 			check =  false;
 			System.out.println("turn() has ended");
+		
 		}
 		else{
 			System.out.println(player.getPlayerName() + " is in Jail.")
@@ -58,11 +57,6 @@ public class Game{
 		seg.land(player);
 		
 	}
-
-	public boolean clicked(){
-		return gui.Roll.getModel().isPressed();
-	}
-
 
 
 	public Player getCurrentPlayer() {
