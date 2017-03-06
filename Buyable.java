@@ -1,6 +1,7 @@
 
 public class Buyable extends Segment {
 	
+	//public boolean buyable = true;
 	
 	protected int value;
 	protected boolean isOwned = false;

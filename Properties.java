@@ -9,16 +9,10 @@ public class Properties extends Buyable {
 	}
 	
 	public void land(Player player){
-		if(turn == true && !isOwned){
+		if(!isOwned){
 			
 			System.out.println(player.getPlayerName() + " has the option to buy the property " + name + " at pos" + player.getBoardPosition() + ". The property costs " + getCost(value) + " . They have " + player.balance.getBalance());
-			
-			while(buy != true) // || dontBuy != true
-			{
-				buy = buy;
-			}
-			
-			buy(player);
+			//buy(player);
 			
 		}
 		else if (turn == true && getOwner() == player){

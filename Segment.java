@@ -4,6 +4,8 @@ public abstract class Segment {
 	volatile boolean turn = false;
 	volatile boolean buy = false;
 	
+	protected boolean buyable = false;
+	
 	
 	protected int position;
 	protected String name;
@@ -14,4 +16,6 @@ public abstract class Segment {
 	}
 	
 	public void land(Player player){	}
+
+	public void buy(Player currentPlayer) {	}
 }

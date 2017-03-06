@@ -12,38 +12,38 @@ public class Game{
 	Dice dice = new Dice();
 	Board board = new Board();
 	GUI gui = new GUI();
+
+	public volatile boolean check = false;
 	
 	public void turn(Player player){
 		currentPlayer = player;
+		System.out.println("turn starting for " + currentPlayer.playerName);
 		if(!player.jailed){
 			System.out.println(player.getPlayerName() + " is starting their turn at " + board.getSegment(player.getBoardPosition()).name);
 			dice.RollDice();
 			int movement = dice.getMovement();	
 			player.setBoardPosition(movement + player.getBoardPosition());
 			seg = board.getSegment(player.getBoardPosition());
-
-			
-			if(dice.DiceEqual()){
-				System.out.println("Rolled a double. Gets to go again");
-				turn(player);
-			}
-		}
-		else if(jailCounter > 2){
-			player.jailed = false;
-			turn(player);
-		}
-		else{
-			jailCounter++;
-			if(dice.DiceEqual()){
-				player.jailed = false;
-				turn(player);
-				jailCounter = 0;
-			}
+			pressCheck(player);
+			check =  false;
+			System.out.println("turn() has ended");
 		}
 	}
 	
-	public void takeTurn(){
-		
+	public void buy(){
+		if(seg != null){
+			System.out.println(seg);
+			seg.buy(currentPlayer);
+		}
+	}
+	
+	public void pressCheck(Player player){
+		if(check = true){
+			seg.land(player);
+		}
+		else{
+			pressCheck(player);
+		}
 	}
 	
 	
@@ -54,14 +54,8 @@ public class Game{
 		
 	}
 
-	
-	public void buy()
-	{
-		seg.buy = true;
-	}
-
 	public boolean clicked(){
-		return gui.btnNewButton.getModel().isPressed();
+		return gui.Roll.getModel().isPressed();
 	}
 
 

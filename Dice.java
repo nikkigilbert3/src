@@ -19,15 +19,12 @@ public class Dice {
 			pressed = gui.rollPressed;
 		}
 		*/
-		 face1 = 1+rand.nextInt(6);
-		 face2 = 1+rand.nextInt(6);
-		 System.out.println(face1 + " and " + face2 + " has been rolled.");
+		 face1 = 1+rand.nextInt(12);
+		 System.out.println(face1 + " has been rolled.");
 	}
-	public boolean DiceEqual(){
-		return face1 == face2;
-	}
+	
 	public int getMovement(){
-		int totalMovement = face1 + face2;
+		int totalMovement = face1;
 		return totalMovement;
 	}
 	

@@ -22,9 +22,10 @@ import javax.swing.JTextArea;
 public class GUI implements ActionListener{
 
 	JFrame frame;
-	JButton btnNewButton;
-	JButton btnNewButton_1;
-	JButton btnNewButton_2;
+	JButton Roll;
+	JButton Buy;
+	JButton Sell;
+	JButton DontBuy;
 	static int counter = 0;
 
 	static GUI gui = new GUI();
@@ -34,6 +35,7 @@ public class GUI implements ActionListener{
 	
 /**
 	 * Create the application.
+ * @wbp.parser.entryPoint
 	 */
 	public GUI( ) {
 		initialize();
@@ -53,20 +55,26 @@ public class GUI implements ActionListener{
 		
 		
 		// Buttons
-		btnNewButton = new JButton("Roll");
-		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.setBounds(550, 560, 200, 100);
-		btnNewButton.setVisible(true);
+		Roll = new JButton("Roll");
+		Roll.setBackground(Color.WHITE);
+		Roll.setBounds(550, 560, 200, 100);
+		Roll.setVisible(true);
 		
-		btnNewButton_1 = new JButton("Buy");
-		btnNewButton_1.setBackground(Color.WHITE);
-		btnNewButton_1.setBounds(550, 450, 200, 100);
-		btnNewButton_1.setVisible(true);
+		Buy = new JButton("Buy");
+		Buy.setBackground(Color.WHITE);
+		Buy.setBounds(495, 450, 150, 100);
+		Buy.setVisible(true);
 		
-		btnNewButton_2 = new JButton("Sell");
-		btnNewButton_2.setBackground(Color.WHITE);
-		btnNewButton_2.setBounds(550, 340, 200, 100);
-		btnNewButton_2.setVisible(true);
+		Sell = new JButton("Sell");
+		Sell.setBackground(Color.WHITE);
+		Sell.setBounds(550, 340, 200, 100);
+		Sell.setVisible(true);
+		
+		JButton DontBuy = new JButton("Dont Buy");
+		DontBuy.setBackground(Color.WHITE);
+		DontBuy.setBounds(655, 450, 150, 100);
+		DontBuy.setVisible(true);
+		
 		
 	    
 		
@@ -75,10 +83,10 @@ public class GUI implements ActionListener{
 		Current_Player.setForeground(Color.CYAN);
 		Current_Player.setBounds(189, 292, 209, 125);
 		frame.getContentPane().add(Current_Player);
-		frame.getContentPane().add(btnNewButton_2);
-		frame.getContentPane().add(btnNewButton_1);
-		frame.getContentPane().add(btnNewButton);
-		
+		frame.getContentPane().add(Sell);
+		frame.getContentPane().add(Buy);
+		frame.getContentPane().add(Roll);
+		frame.getContentPane().add(DontBuy);
 		
 		// Board
 		JLabel Board = new JLabel("");
@@ -264,22 +272,37 @@ public class GUI implements ActionListener{
 		frame.getContentPane().add(lblPos);
 		
 		
-		// add the listener to the jbutton to handle the "pressed" event
-	    btnNewButton.addActionListener(this);
 		
+		// add the listener to the jbutton to handle the "pressed" event
+	    Roll.addActionListener(this);
+		Buy.addActionListener(this);
+		DontBuy.addActionListener(this);
 		
 		
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		
-		if (e.getSource().equals(gui.btnNewButton)){
-			game.turn(game.getCurrentPlayer());
-			counter++;
-	    }
-		else if (e.getSource().equals(gui.btnNewButton_1)){
+		if (e.getSource().equals(Buy)){
+			game.check = true;
+			//System.out.print(game.check + "4");
+			
 			game.buy();
 	    }
+		
+		if (e.getSource().equals(Roll)){
+			game.turn(game.getCurrentPlayer());
+			counter++;
+			//System.out.print(game.check + "3");
+	    }
+		
+		if (e.getSource().equals(DontBuy)){
+			game.check = false;
+		}
+		
+		
+		
+		
 
 			
 	}
@@ -342,10 +365,8 @@ public class GUI implements ActionListener{
 				game.turn(player4);
 				*/
 			
+			}
 		}
-		}
-		
-		
 }
 	
 	

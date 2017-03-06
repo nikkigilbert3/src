@@ -25,18 +25,12 @@ public class Station extends Buyable {
 				
 				System.out.println(player.getPlayerName() + " has the option to buy the property " + name + " at pos" + player.getBoardPosition() + ". The property costs " + getCost() + " . They have " + player.balance.getBalance());
 				
-				/*while(buy != true) // || dontBuy != true
-				{
-		
-				}*/
-				
 				buy(player);
 				
 			}
 			else if (turn == true && getOwner() == player){
 				sell(player);
 			}
-			//hotel(player);
 			
 		}
 	
@@ -50,18 +44,29 @@ public class Station extends Buyable {
 		return 200;
 	}
 	
-	public void buy(Player player){
-		if(!isOwned){
-			if(player.balance.getBalance()> getCost()){
-				System.out.println(player.getPlayerName() + " has bought this property. They now have " + player.balance.getBalance());
-				player.balance.subtractBalance(getCost());
-				owner = player;
-			}
-			else if(player.balance.getBalance()< getCost()){
-				System.out.println("You do not have enough money for this"); 
-			}
+public void buy(Player player){
 		
+		//Buy
+		System.out.println("1");
+		
+		//Get Input
+		
+		if(player.balance.getBalance()> getCost()){
+			player.balance.subtractBalance(getCost());
+			System.out.println(player.getPlayerName() + " has bought this property. They now have " + player.balance.getBalance());
+			this.SetOwner(player);
+			System.out.println("2");
 		}
+		else if(player.balance.getBalance()< getCost()){
+			System.out.println(player.getPlayerName() +" has an insufficient balace to buy this property");
+			System.out.println("3");
+		}
+		else{
+			System.out.println("Input is incorrect");
+			buy(player);
+			System.out.println("4");
+		}
+
 	}
 	
 	public void sell(Player player){
