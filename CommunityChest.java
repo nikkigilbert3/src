@@ -29,16 +29,17 @@ public class CommunityChest extends Segment{
 		else if (card == 3){
 			System.out.println("Doctor's fee - Pay 50!");
 			//Subtract 50 from bank balance
-			player.balance.addBalance(50);
+			player.balance.subtractBalance(50);
 		}
 		else if (card == 4){
 			System.out.println("Sale of Stock - Collect 50!");
 			//Add 200 to bank balance
-			player.balance.addBalance(50);
+			player.balance.addBalance(200);
 		}
 		else if (card == 5){
 			System.out.println("Get Out of Jail Free!");
 			//Make get out of jail free card
+			//Must do
 		}
 		else if (card == 6){
 			System.out.println("Go to Jail!");
@@ -63,12 +64,12 @@ public class CommunityChest extends Segment{
 		else if (card == 10){
 			System.out.println("Hospital Fees - Pay 100!");
 			// Subtract 100 from bank balance
-			player.balance.addBalance(100);
+			player.balance.subtractBalance(100);
 		}
 		else if (card == 11){
 			System.out.println("School Fees - Pay 150!");
 			//subtract 150 from bank balance
-			player.balance.addBalance(150);
+			player.balance.subtractBalance(150);
 		}
 		else if (card == 12){
 			System.out.println("Consultancy Fee - Collect 25!");
@@ -86,15 +87,15 @@ public class CommunityChest extends Segment{
 }
 
 //1.Advance to Go (Collect $200)/
-//2Bank error in your favor – Collect $200
-//3Doctor's fees {fee} – Pay $50 
+//2Bank error in your favor â€“ Collect $200
+//3Doctor's fees {fee} â€“ Pay $50 
 //4From sale of stock you get $50
 //5Get Out of Jail Free
 //6Go to Jail
 //7Holiday {Xmas} Fund matures - Receive {Collect} $100 
-//8Income tax refund – Collect $20
-//9Life insurance matures – Collect $100
+//8Income tax refund â€“ Collect $20
+//9Life insurance matures â€“ Collect $100
 //10Pay hospital fees of $100
 //11Pay school fees {tax} of $150 
 //12Receive $25 consultancy fee
-//13You have won second prize in a beauty contest – Collect $10 
+//13You have won second prize in a beauty contest â€“ Collect $10 
